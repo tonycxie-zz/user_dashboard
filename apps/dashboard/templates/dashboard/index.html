@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/main.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand text-light" href="/dashboard">MyApp</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="/dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="/users/edit">Profile <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <a class="text-light" href="/dashboard/logout">Log off</a>
+        </nav>
+        <div class="manage-users">
+            {% if request.session.user_level == 9 %}
+            <h2>Manage Users</h2>
+            <button class="btn btn-primary add-user"><a href="/users/new">Add new</a></button>
+            {% else %}
+            <h2>All Users</h2>
+            {% endif %}
+            <div class="admin-table">
+                <div class="row">
+                    <div class="col col-display">
+                        <p>ID</p>
+                    </div>
+                    <div class="col col-display">
+                        <p>Name</p>
+                    </div>
+                    <div class="col col-display">
+                        <p>Email</p>
+                    </div>
+                    <div class="col col-display">
+                        <p>Status</p>
+                    </div>
+                    {% if request.session.user_level == 9 %}
+                    <div class="col-3 col-display">
+                        <p>Actions</p>
+                    </div>
+                    {% endif %}
+                </div>
+                {% for user in users %}
+                <div class="row">
+                    <div class="col col-display">
+                        <p>{{ user.id }}</p>
+                    </div>
+                    <div class="col col-display">
+                        <p><a href="/users/show/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a></p>
+                    </div>
+                    <div class="col col-display">
+                        <p>{{ user.email }}</p>
+                    </div>
+                    <div class="col col-display">
+                        {% if user.user_level == 9 %}
+                        <p>Admin</p>
+                        {% else %}
+                        <p>User</p>
+                        {% endif %}
+                    </div>
+                    {% if request.session.user_level == 9 %}
+                    <div class="col-3 col-display">
+                        <button class="btn btn-danger"><a href="/users/delete_user/{{ user.id }}">Remove</a></button>
+                        <button class="btn btn-primary"><a href="/users/edit_user/{{ user.id }}">Edit</a></button>
+                        {% if user.user_level == 9 %}
+                        <button class="btn btn-danger"><a href="/users/remove_admin/{{ user.id }}">Remove Admin Access</a></button>                    
+                        {% else %}
+                        <button class="btn btn-success"><a href="/users/make_admin/{{ user.id }}">Make Admin</a></button>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

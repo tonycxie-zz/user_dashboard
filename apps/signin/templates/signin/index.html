@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signin/css/main.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand text-light" href="/">MyApp</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <a class="text-light" href="/signin">Sign In</a>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to MyApp!</h1>
+            <p class="lead">
+                This is going to be a really cool app. At least I hope it will. If it
+                isn't then I will be sad :(
+            </p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/register">Start</a>
+            </p>
+        </div>
+        <div class="info">
+            <div class="row">
+                <div class="col">
+                    <h3>Manage Users</h3>
+                    <p>
+                        Using this application, you'll learn be able to add, edit,
+                        or remove users if they ever step out of line.
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>Leave Messages</h3>
+                    <p>
+                        Users will be able to leave messages for other users
+                        whenever they feel like it up until that person gets annoyed 
+                        of you and subsequently blocks you.
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>Edit User Information</h3>
+                    <p>
+                        Admins will be able to edit another user's information
+                        and give them funny names to make them look like fools.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

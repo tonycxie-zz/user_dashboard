@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'signin/css/login.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand text-light" href="/">MyApp</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <a class="text-light" href="/signin">Sign In</a>
+        </nav>
+        {% if messages %}
+        <div class="validation">
+            {% for message in messages %}
+                <p class="{{ message.level_tag }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="signin-form">
+            <h2>Sign in</h2>
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <label for="email" class="control-label">Email:</label>
+                <input type="text" class="form-control" name="email">
+                <label for="password" class="control-label">Password:</label>
+                <input type="password" class="form-control hide-pw" name="password">
+                <button type="submit" class="btn btn-success">Login!</button>
+            </form>
+            <a href="/register">Don't have an account? Register.</a>
+        </div>
+    </div>
+</body>
+</html>

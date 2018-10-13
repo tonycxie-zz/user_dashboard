@@ -1,0 +1,51 @@
+body .container-fluid {
+    padding: 0;
+}
+
+.container-fluid .navbar {
+    padding: 8px 10%;
+}
+
+button {
+    margin-top: 10px;
+}
+
+button a {
+    color: white;
+}
+
+.messages {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.messages button {
+    margin-top: 10px;
+}
+
+.message-container, .comment-container {
+    margin-left: 2%;
+}
+
+.user {
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+.text-display {
+    display: inline-block;
+    margin-right: 5%;
+}
+
+.user-info {
+    width: 50%;
+    margin: 20px 10%;
+}
+
+.user-info .row {
+    width: 40%;
+}
+
+.user-info .col {
+    width: 20%;
+}

@@ -1,0 +1,63 @@
+body .container-fluid {
+    padding: 0;
+}
+
+.container-fluid .navbar {
+    padding: 8px 10%;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.container-fluid .manage-users {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.container-fluid .add-user {
+    float: right;
+}
+
+.admin-table .row {
+    border-left: 2px solid black;
+}
+
+.add-user {
+    margin-top: 30px;
+}
+
+.row .col-display {
+    border-right: 2px solid black;
+}
+
+.row:first-child {
+    background-color: #cccccc;
+    border-top: 2px solid black;
+}
+
+.row:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+.row:last-child {
+    border-bottom: 2px solid black;
+}
+
+p {
+    padding-top: 10px;
+}
+
+button {
+    margin-top: 5px;
+}
+
+button a {
+    color: white;
+}
+

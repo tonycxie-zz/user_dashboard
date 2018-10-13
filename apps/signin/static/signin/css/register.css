@@ -1,0 +1,24 @@
+body .container-fluid {
+    padding: 0;
+}
+
+.container-fluid .navbar {
+    padding: 8px 10%;
+}
+
+.register-form {
+    margin: 50px 10%;
+    width: 35%;
+}
+
+button {
+    margin: 10px 0;
+}
+
+.validation {
+    margin: 10px 10%;
+}
+
+.error {
+    color: red;
+}
