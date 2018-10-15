@@ -5,7 +5,10 @@ import bcrypt
 
 
 def index(request):
-    user = Users.objects.get(id = request.session["userid"])
+    if request.session.get("userid"):
+        user = Users.objects.get(id = request.session["userid"])
+    else:
+        user = Users.objects.get(email = request.session["email"])
     request.session["user_level"] = user.user_level
     request.session["first_name"] = user.first_name
     request.session["last_name"] = user.last_name
